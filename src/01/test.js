@@ -1,10 +1,8 @@
 const {challenge1, challenge2} = require('./solution.js');
 const expect = require('chai').expect;
-
-const fs = require('fs');
-const {promisify} = require('util');
-const readFile = promisify(fs.readFile);
 const path = require('path');
+
+const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'));
 
 describe("Challenge 01 - Day 01", () => {
     it("1122", () => {
@@ -24,7 +22,7 @@ describe("Challenge 01 - Day 01", () => {
         expect(result).to.be.equal(9)
     });
     it("Puzzle input", async () => {
-        const input = await readFile(path.join(__dirname, 'input.txt'), 'utf8');
+        const input = await readInput();
         const result = challenge1(input);
         expect(result).to.be.equal(1228)
     })
@@ -52,7 +50,7 @@ describe("Challenge 01 - Day 02", () => {
         expect(result).to.be.equal(4)
     });
     it("Puzzle input", async () => {
-        const input = await readFile(path.join(__dirname, 'input.txt'), 'utf8');
+        const input = await readInput();
         const result = challenge2(input);
         expect(result).to.be.equal(1238)
     })
