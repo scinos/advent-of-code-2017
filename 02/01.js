@@ -1,6 +1,6 @@
 module.exports = input => input
     // Split into rows
-    .split('/n')
+    .split('\n')
 
     // Process each row
     .map((row) => {
