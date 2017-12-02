@@ -5,9 +5,15 @@
   "license": "MIT",
   "dependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "eslint": "^4.12.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "mocha": "^4.0.1",
+    "prettier": "^1.8.2"
   },
   "scripts": {
-    "test": "mocha src/**/test.js"
+    "test": "mocha src/**/test.js",
+    "lint": "eslint src"
   }
 }
