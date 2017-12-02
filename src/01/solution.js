@@ -1,27 +1,12 @@
-module.exports.challenge1 =  (input) => {
-    const inputAsArray = input.split('');
-    inputAsArray.push(inputAsArray[0]);
+const findRelatedNumbers  = (input, step) => {
+    // Clone input array to not modify external object
+    const workArray = input.slice();
 
-    return inputAsArray
-        .map(Number)
-        .reduce(
-            (sum, current, index, list) => {
-                if (current === list[index+1]) return sum + current;
-                return sum;
-            },
-            0
-        );
-};
+    return workArray
+        // Duplicate part of the array for easier circular checks
+        .concat(workArray.slice(0, step))
 
-module.exports.challenge2 = (input) => {
-    let inputAsArray = input.split('');
-
-    const step = inputAsArray.length / 2;
-
-    inputAsArray = inputAsArray.concat(inputAsArray.slice(0, step));
-
-    return inputAsArray
-        .map(Number)
+        // Sum related numbers
         .reduce(
             (sum, current, index, list) => {
                 if (current === list[index+step]) return sum + current;
@@ -29,4 +14,15 @@ module.exports.challenge2 = (input) => {
             },
             0
         );
+}
+
+module.exports.challenge1 =  (input) => {
+    const inputAsArray = input.split('').map(Number);
+    return findRelatedNumbers(inputAsArray, 1);
+};
+
+module.exports.challenge2 = (input) => {
+    let inputAsArray = input.split('').map(Number);
+    const step = inputAsArray.length / 2;
+    return findRelatedNumbers(inputAsArray, step);
 };
