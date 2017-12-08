@@ -6,5 +6,10 @@ module.exports = {
         node: true,
         mocha: true
     },
-    extends: "airbnb-base"
+    extends: "airbnb-base",
+
+    rules: {
+        "no-loop-func": "off",
+        "no-mixed-operators": "off"
+    }
 }
