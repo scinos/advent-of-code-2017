@@ -12,6 +12,7 @@ module.exports = {
         "no-loop-func": "off",
         "no-mixed-operators": "off",
         'no-debugger': "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "no-param-reassign": "off"
     }
 }
