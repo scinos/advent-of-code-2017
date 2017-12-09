@@ -11,6 +11,7 @@ module.exports = {
     rules: {
         "no-loop-func": "off",
         "no-mixed-operators": "off",
-        'no-debugger': "off"
+        'no-debugger': "off",
+        "no-unused-expressions": "off"
     }
 }
