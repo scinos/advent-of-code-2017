@@ -13,6 +13,7 @@ module.exports = {
         "no-mixed-operators": "off",
         'no-debugger': "off",
         "no-unused-expressions": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "no-cond-assign": "off"
     }
 }
