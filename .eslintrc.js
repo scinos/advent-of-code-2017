@@ -14,6 +14,7 @@ module.exports = {
         'no-debugger': "off",
         "no-unused-expressions": "off",
         "no-param-reassign": "off",
-        "no-cond-assign": "off"
+        "no-cond-assign": "off",
+        "no-continue": "off"
     }
 }
