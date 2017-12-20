@@ -7,7 +7,7 @@ const path = require('path');
 
 const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'));
 
-describe.only('Day 09 - Challenge 01', () => {
+describe('Day 09 - Challenge 01', () => {
   it('Example 1', () => {
     expect(challenge1('{}')).to.equal(1);
   });
@@ -47,7 +47,7 @@ describe.only('Day 09 - Challenge 01', () => {
   });
 });
 
-describe.only('Day 09 - Challenge 02', () => {
+describe('Day 09 - Challenge 02', () => {
   it('Example 1', () => {
     expect(challenge2('<>')).to.equal(0);
   });
