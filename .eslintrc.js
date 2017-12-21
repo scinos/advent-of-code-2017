@@ -18,5 +18,6 @@ module.exports = {
         "no-continue": "off",
         "no-bitwise": "off",
         "prefer-destructuring": "off",
+        "no-return-assign": "off"
     }
 }
