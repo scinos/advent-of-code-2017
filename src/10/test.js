@@ -1,6 +1,9 @@
 const {
   challenge1,
   processList,
+  inputToBytes,
+  extendBytes,
+  challenge2,
 } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
@@ -71,12 +74,50 @@ describe('Day 10 - Challenge 01', () => {
   });
 
   it('Example 1', () => {
-    expect(challenge1('3,4,1,5')).to.equal(12);
+    expect(challenge1('3,4,1,5', 5)).to.equal(12);
   });
 
   it('Puzzle input', async () => {
     const input = await readInput();
     const result = challenge1(input);
     expect(result).to.equal(62238);
+  });
+});
+
+describe('Day 10 - Challenge 02', () => {
+  it('Input to bytes', () => {
+    const input = '1,2,3';
+
+    expect(inputToBytes(input)).to.deep.equal([
+      49, 44, 50, 44, 51,
+    ]);
+  });
+
+  it('Extend bytes', () => {
+    expect(extendBytes([49, 44, 50, 44, 51])).to.deep.equal([
+      49, 44, 50, 44, 51, 17, 31, 73, 47, 23,
+    ]);
+  });
+
+  it('Example 1: empty string', () => {
+    expect(challenge2('')).to.equal('a2582a3a0e66e6e86e3812dcb672a272');
+  });
+
+  it('Example 2: AoC 2017', () => {
+    expect(challenge2('AoC 2017')).to.equal('33efeb34ea91902bb2f59c9920caa6cd');
+  });
+
+  it('Example 3: 1,2,3', () => {
+    expect(challenge2('1,2,3')).to.equal('3efbe78a8d82f29979031a4aa0b16a9d');
+  });
+
+  it('Example 4: 1,2,4', () => {
+    expect(challenge2('1,2,4')).to.equal('63960835bcdc130f0b66d7ff4f6a5a8e');
+  });
+
+  it('Puzzle input', async () => {
+    const input = await readInput();
+    const result = challenge2(input.trim());
+    expect(result).to.equal('2b0c9cc0449507a0db3babd57ad9e8d8');
   });
 });

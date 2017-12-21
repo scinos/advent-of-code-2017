@@ -15,6 +15,8 @@ module.exports = {
         "no-unused-expressions": "off",
         "no-param-reassign": "off",
         "no-cond-assign": "off",
-        "no-continue": "off"
+        "no-continue": "off",
+        "no-bitwise": "off",
+        "prefer-destructuring": "off",
     }
 }
