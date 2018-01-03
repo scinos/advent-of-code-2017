@@ -67,12 +67,26 @@ module.exports.challenge1 = (initialLine, dance) => {
   return doDance(dancers, moves).join('');
 };
 
-module.exports.challenge2 = (initialLine, dance, repetitions = 100) => {
+/*
+ * We exploit the fact that there are probably loops in the instructions. This means that after
+ * running N instructions, we'll get the initial configuration again.
+ *
+ * Once we have detected a loop, we don't need to compute all repetitions. We only need to
+ * compuet those "outside" the loops. For example, if there are 100 repetitions and the loop
+ * occurs at position 30, we only need to run 10 repetitions, because the first 90 (3 loops)
+ * will always yield the initial configuration.
+ *
+ * Also, because we have been saving all configurations that happens inside the loop, we don't
+ * need to re-compute it, because literally all posible values have been alraedy computed to
+ * detect the loop. In other words, `patterns` is like a memoization of the dance: we can just
+ * pick the expected value from there.
+ */
+module.exports.challenge2 = (initialLine, dance, repetitions) => {
   const moves = dance.split(',').map(parseMove);
   let dancers = initialLine.split('');
 
   const patterns = [];
-  let loop;
+  let loop = Infinity;
   for (let i = 0; i < repetitions; i += 1) {
     dancers = doDance(dancers, moves);
     if (patterns.includes(dancers.join(''))) {

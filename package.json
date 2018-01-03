@@ -13,7 +13,7 @@
     "prettier": "^1.8.2"
   },
   "scripts": {
-    "test": "mocha src/**/test.js",
+    "test": "mocha src/**/test.js --timeout 10000",
     "lint": "eslint src"
   }
 }
