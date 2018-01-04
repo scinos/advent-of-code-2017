@@ -1,8 +1,5 @@
-
-const processList = ({
-  list, position, length, skip,
-}) => {
-  if ((position + length) < list.length) {
+const processList = ({ list, position, length, skip }) => {
+  if (position + length < list.length) {
     const twistedString = list.slice(position, position + length).reverse();
 
     const newList = [
@@ -35,18 +32,21 @@ const processList = ({
 };
 const inputToBytes = input => input.split('').map(c => c.charCodeAt(0));
 const extendBytes = bytes => [...bytes, 17, 31, 73, 47, 23];
-const round = (input, initialList, initialPosition = 0, initialSkip = 0) => input
-  .reduce(({ list, position, skip }, length) => processList({
-    list,
-    position,
-    length,
-    skip,
-  }), {
-    list: initialList,
-    position: initialPosition,
-    skip: initialSkip,
-  });
-
+const round = (input, initialList, initialPosition = 0, initialSkip = 0) =>
+  input.reduce(
+    ({ list, position, skip }, length) =>
+      processList({
+        list,
+        position,
+        length,
+        skip,
+      }),
+    {
+      list: initialList,
+      position: initialPosition,
+      skip: initialSkip,
+    },
+  );
 
 module.exports.challenge1 = (input, size = 256) => {
   // Clean up the input
@@ -90,7 +90,7 @@ module.exports.challenge2 = (input, size = 256) => {
     const block = list.slice(index, index + 16);
     const xor = block.reduce((a, b) => a ^ b);
     const hex = xor.toString(16);
-    hash += (hex.length === 1) ? `0${hex}` : hex;
+    hash += hex.length === 1 ? `0${hex}` : hex;
   }
 
   return hash;

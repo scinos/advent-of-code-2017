@@ -1,8 +1,4 @@
-const {
-  challenge1,
-  isInGroup,
-  challenge2,
-} = require('./solution.js');
+const { challenge1, isInGroup, challenge2 } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
 
@@ -59,4 +55,3 @@ describe('Day 12 - Challenge 02', () => {
     expect(result).to.equal(179);
   });
 });
-

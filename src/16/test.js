@@ -1,7 +1,4 @@
-const {
-  challenge1,
-  challenge2,
-} = require('./solution.js');
+const { challenge1, challenge2 } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
 

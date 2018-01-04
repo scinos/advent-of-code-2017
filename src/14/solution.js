@@ -2,20 +2,22 @@ const { challenge2: knot } = require('../10/solution');
 
 const GRID = 128;
 
-const hashGrid = (key) => {
+const hashGrid = key => {
   const hashes = [];
 
   for (let index = 0; index < GRID; index += 1) {
     const rowKey = `${key}-${index}`;
     const hash = knot(rowKey);
-    hashes.push(hash.split('').reduce((acc, hexadecimalCharacter) => {
-      const binaryHash = parseInt(hexadecimalCharacter, 16)
-        .toString(2)
-        .split('')
-        .map(b => Number(b));
-      const paddedHash = [0, 0, 0, 0, ...binaryHash].slice(-4);
-      return [...acc, ...paddedHash];
-    }, []));
+    hashes.push(
+      hash.split('').reduce((acc, hexadecimalCharacter) => {
+        const binaryHash = parseInt(hexadecimalCharacter, 16)
+          .toString(2)
+          .split('')
+          .map(b => Number(b));
+        const paddedHash = [0, 0, 0, 0, ...binaryHash].slice(-4);
+        return [...acc, ...paddedHash];
+      }, []),
+    );
   }
 
   return hashes;
@@ -30,15 +32,13 @@ const removeGroup = (grid, x, y) => {
   if (y > 0) removeGroup(grid, x, y - 1);
 };
 
-module.exports.challenge1 = (key) => {
+module.exports.challenge1 = key => {
   const hashes = hashGrid(key);
-  const total = hashes
-    .map(line => line.filter(c => c === 1).length)
-    .reduce((a, b) => a + b);
+  const total = hashes.map(line => line.filter(c => c === 1).length).reduce((a, b) => a + b);
   return total;
 };
 
-module.exports.challenge2 = (key) => {
+module.exports.challenge2 = key => {
   const grid = hashGrid(key);
   let groups = 0;
 
@@ -54,4 +54,3 @@ module.exports.challenge2 = (key) => {
 
   return groups;
 };
-

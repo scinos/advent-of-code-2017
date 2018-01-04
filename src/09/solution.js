@@ -1,4 +1,4 @@
-const countStream = (stream) => {
+const countStream = stream => {
   let groupScore = 0;
   let nextScore = 1;
   let garbageCount = 0;
@@ -6,7 +6,7 @@ const countStream = (stream) => {
   let character;
   let index = 0;
 
-  while (character = stream[index]) {
+  while ((character = stream[index])) {
     switch (character) {
       case '{':
         if (inGarbage) {

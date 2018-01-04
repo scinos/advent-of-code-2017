@@ -1,10 +1,4 @@
-const {
-  challenge1,
-  processList,
-  inputToBytes,
-  extendBytes,
-  challenge2,
-} = require('./solution.js');
+const { challenge1, processList, inputToBytes, extendBytes, challenge2 } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
 
@@ -18,9 +12,14 @@ describe('Day 10 - Challenge 01', () => {
       const length = 3;
       const skip = 0;
 
-      expect(processList({
-        list, position, length, skip,
-      })).to.deep.equal({
+      expect(
+        processList({
+          list,
+          position,
+          length,
+          skip,
+        }),
+      ).to.deep.equal({
         list: ['2', '1', '0', '3', '4'],
         position: 3,
         skip: 1,
@@ -33,9 +32,14 @@ describe('Day 10 - Challenge 01', () => {
       const length = 4;
       const skip = 1;
 
-      expect(processList({
-        list, position, length, skip,
-      })).to.deep.equal({
+      expect(
+        processList({
+          list,
+          position,
+          length,
+          skip,
+        }),
+      ).to.deep.equal({
         list: ['4', '3', '0', '1', '2'],
         position: 3,
         skip: 2,
@@ -48,9 +52,14 @@ describe('Day 10 - Challenge 01', () => {
       const length = 1;
       const skip = 2;
 
-      expect(processList({
-        list, position, length, skip,
-      })).to.deep.equal({
+      expect(
+        processList({
+          list,
+          position,
+          length,
+          skip,
+        }),
+      ).to.deep.equal({
         list: ['4', '3', '0', '1', '2'],
         position: 1,
         skip: 3,
@@ -63,9 +72,14 @@ describe('Day 10 - Challenge 01', () => {
       const length = 5;
       const skip = 3;
 
-      expect(processList({
-        list, position, length, skip,
-      })).to.deep.equal({
+      expect(
+        processList({
+          list,
+          position,
+          length,
+          skip,
+        }),
+      ).to.deep.equal({
         list: ['3', '4', '2', '1', '0'],
         position: 4,
         skip: 4,
@@ -88,14 +102,21 @@ describe('Day 10 - Challenge 02', () => {
   it('Input to bytes', () => {
     const input = '1,2,3';
 
-    expect(inputToBytes(input)).to.deep.equal([
-      49, 44, 50, 44, 51,
-    ]);
+    expect(inputToBytes(input)).to.deep.equal([49, 44, 50, 44, 51]);
   });
 
   it('Extend bytes', () => {
     expect(extendBytes([49, 44, 50, 44, 51])).to.deep.equal([
-      49, 44, 50, 44, 51, 17, 31, 73, 47, 23,
+      49,
+      44,
+      50,
+      44,
+      51,
+      17,
+      31,
+      73,
+      47,
+      23,
     ]);
   });
 

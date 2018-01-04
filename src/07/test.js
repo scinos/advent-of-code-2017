@@ -1,7 +1,4 @@
-const {
-  challenge1,
-  challenge2,
-} = require('./solution.js');
+const { challenge1, challenge2 } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
 
@@ -35,7 +32,6 @@ describe('Day 07 - Challenge 01', () => {
     expect(result).to.equal('rqwgj');
   });
 });
-
 
 describe('Day 07 - Challenge 02', () => {
   it('Example #01', () => {

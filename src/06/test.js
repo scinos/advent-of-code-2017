@@ -1,6 +1,4 @@
-const {
-  challenge1, challenge2, balanceMemory, findBiggestBank,
-} = require('./solution.js');
+const { challenge1, challenge2, balanceMemory, findBiggestBank } = require('./solution.js');
 const { expect } = require('chai');
 const path = require('path');
 

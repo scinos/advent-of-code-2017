@@ -20,7 +20,7 @@ const generateAndCompare = (initialA, condA, initialB, condB, total) => {
     a = generateNext(a, FACTOR_A, condA);
     b = generateNext(b, FACTOR_B, condB);
 
-    if ((a & (2 ** 16) - 1) === (b & (2 ** 16) - 1)) {
+    if ((a & (2 ** 16 - 1)) === (b & (2 ** 16 - 1))) {
       counter += 1;
     }
   }
@@ -28,30 +28,20 @@ const generateAndCompare = (initialA, condA, initialB, condB, total) => {
   return counter;
 };
 
-const generateAndCompareAll = (initialA, initialB, total) => generateAndCompare(
-  initialA,
-  () => true,
-  initialB,
-  () => true,
-  total,
-);
+const generateAndCompareAll = (initialA, initialB, total) =>
+  generateAndCompare(initialA, () => true, initialB, () => true, total);
 
-const generateAndCompareMultiples = (initialA, initialB, total) => generateAndCompare(
-  initialA,
-  value => value % 4 === 0,
-  initialB,
-  value => value % 8 === 0,
-  total,
-);
+const generateAndCompareMultiples = (initialA, initialB, total) =>
+  generateAndCompare(initialA, value => value % 4 === 0, initialB, value => value % 8 === 0, total);
 
-const challenge1 = (input) => {
+const challenge1 = input => {
   const lines = input.split('\n');
   const [, initialA] = lines[0].match(/^Generator A starts with (\d+)$/);
   const [, initialB] = lines[1].match(/^Generator B starts with (\d+)$/);
   return generateAndCompareAll(Number(initialA), Number(initialB), 40000000);
 };
 
-const challenge2 = (input) => {
+const challenge2 = input => {
   const lines = input.split('\n');
   const [, initialA] = lines[0].match(/^Generator A starts with (\d+)$/);
   const [, initialB] = lines[1].match(/^Generator B starts with (\d+)$/);
@@ -59,5 +49,8 @@ const challenge2 = (input) => {
 };
 
 module.exports = {
-  generateAndCompareAll, generateAndCompareMultiples, challenge1, challenge2,
+  generateAndCompareAll,
+  generateAndCompareMultiples,
+  challenge1,
+  challenge2,
 };

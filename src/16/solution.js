@@ -1,15 +1,14 @@
-
-const parseMove = (move) => {
+const parseMove = move => {
   let match;
 
-  if (match = move.match(/^s(\d+)$/)) {
+  if ((match = move.match(/^s(\d+)$/))) {
     return {
       type: 'spin',
       ammount: match[1],
     };
   }
 
-  if (match = move.match(/^x(\d+)\/(\d+)$/)) {
+  if ((match = move.match(/^x(\d+)\/(\d+)$/))) {
     return {
       type: 'exchange',
       a: match[1],
@@ -17,7 +16,7 @@ const parseMove = (move) => {
     };
   }
 
-  if (match = move.match(/^p([a-z])\/([a-z])$/)) {
+  if ((match = move.match(/^p([a-z])\/([a-z])$/))) {
     return {
       type: 'partner',
       a: match[1],
@@ -96,6 +95,5 @@ module.exports.challenge2 = (initialLine, dance, repetitions) => {
     patterns.push(dancers.join(''));
   }
 
-  return patterns[(repetitions % loop) - 1];
+  return patterns[repetitions % loop - 1];
 };
-

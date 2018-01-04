@@ -5,7 +5,7 @@ const transform = (dir, result, count) => {
   if (result) count[result] += min;
 };
 
-const processDirections = (directions) => {
+const processDirections = directions => {
   const plan = {
     n: 0,
     ne: 0,
@@ -17,7 +17,7 @@ const processDirections = (directions) => {
   let furthest = 0;
   let currentDistance = 0;
 
-  directions.forEach((dir) => {
+  directions.forEach(dir => {
     plan[dir] += 1;
     transform(['n', 's'], null, plan);
     transform(['ne', 'sw'], null, plan);
@@ -42,13 +42,13 @@ const processDirections = (directions) => {
   return { furthest, currentDistance };
 };
 
-module.exports.challenge1 = (input) => {
+module.exports.challenge1 = input => {
   const directions = input.split(',');
   const { currentDistance } = processDirections(directions);
   return currentDistance;
 };
 
-module.exports.challenge2 = (input) => {
+module.exports.challenge2 = input => {
   const directions = input.split(',');
   const { furthest } = processDirections(directions);
   return furthest;

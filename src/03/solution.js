@@ -24,8 +24,7 @@
 //         5 6       17 18 19 20
 //         7 8       21 22 23 24
 
-
-const getNextCoord = (n) => {
+const getNextCoord = n => {
   if (n === 1) return [1, 0];
 
   let found = false;
@@ -38,28 +37,28 @@ const getNextCoord = (n) => {
     }
   }
 
-  const firstNumberInLayer = candidate ** 2 + 1;
+  const firstNumber = candidate ** 2 + 1;
   const layerWidth = candidate + 1;
   const layerCorner = (candidate + 2) ** 2;
 
   if (n === layerCorner) return [1, 0];
-  if (n >= firstNumberInLayer + 0 * layerWidth - 1 && n < firstNumberInLayer + 1 * layerWidth - 1) return [0, 1];
-  if (n >= firstNumberInLayer + 1 * layerWidth - 1 && n < firstNumberInLayer + 2 * layerWidth - 1) return [-1, 0];
-  if (n >= firstNumberInLayer + 2 * layerWidth - 1 && n < firstNumberInLayer + 3 * layerWidth - 1) return [0, -1];
-  if (n >= firstNumberInLayer + 3 * layerWidth - 1 && n < firstNumberInLayer + 4 * layerWidth - 1) return [1, 0];
+  if (n >= firstNumber + 0 * layerWidth - 1 && n < firstNumber + 1 * layerWidth - 1) return [0, 1];
+  if (n >= firstNumber + 1 * layerWidth - 1 && n < firstNumber + 2 * layerWidth - 1) return [-1, 0];
+  if (n >= firstNumber + 2 * layerWidth - 1 && n < firstNumber + 3 * layerWidth - 1) return [0, -1];
+  if (n >= firstNumber + 3 * layerWidth - 1 && n < firstNumber + 4 * layerWidth - 1) return [1, 0];
 
   throw new RangeError("Can't find number in layer");
 };
 
 const distanceToAxis = (axis, n) => {
-  if (axis === 1) return 4 * (n * n) - (11 * n) + 8;
-  if (axis === 2) return 4 * (n * n) - (9 * n) + 6;
-  if (axis === 3) return 4 * (n * n) - (7 * n) + 4;
-  if (axis === 4) return 4 * (n * n) - (5 * n) + 2;
+  if (axis === 1) return 4 * (n * n) - 11 * n + 8;
+  if (axis === 2) return 4 * (n * n) - 9 * n + 6;
+  if (axis === 3) return 4 * (n * n) - 7 * n + 4;
+  if (axis === 4) return 4 * (n * n) - 5 * n + 2;
   throw new Error('Invalid axis');
 };
 
-module.exports.challenge1 = (input) => {
+module.exports.challenge1 = input => {
   let n = 0;
   let min = Infinity;
   let minFoundInLastIteration = true;
@@ -70,7 +69,7 @@ module.exports.challenge1 = (input) => {
     n += 1;
 
     // For each axis, check if the distance to the number is the smallest distance found so far
-    [1, 2, 3, 4].forEach((candidateAxis) => {
+    [1, 2, 3, 4].forEach(candidateAxis => {
       const diff = input - distanceToAxis(candidateAxis, n);
       // If the distance is negative, we have crossed the limit
       if (diff < 0) return;
@@ -91,10 +90,9 @@ module.exports.challenge1 = (input) => {
   return input - distanceToAxis(axis, n) + n - 1;
 };
 
-
-module.exports.getValueForSquare = (square) => {
+module.exports.getValueForSquare = square => {
   const matrix = [];
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1000; i += 1) {
     matrix[i] = Array(1000);
   }
 
@@ -121,14 +119,14 @@ module.exports.getValueForSquare = (square) => {
     matrix[newX][newY] = sum;
     x = newX;
     y = newY;
-    n++;
+    n += 1;
   }
   return matrix[x][y];
 };
 
-module.exports.challenge2 = (input) => {
+module.exports.challenge2 = input => {
   const matrix = [];
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 1000; i += 1) {
     matrix[i] = Array(1000);
   }
 
@@ -158,7 +156,7 @@ module.exports.challenge2 = (input) => {
     y = newY;
 
     if (sum > input) return sum;
-    n++;
+    n += 1;
   }
+  return null;
 };
-

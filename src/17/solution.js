@@ -2,9 +2,9 @@ const getNextPosition = (buffer, currentPosition, step) => {
   let position = currentPosition;
 
   if (position + step > buffer.length - 1) {
-    const stepsUntilTheEnd = (buffer.length) - position;
+    const stepsUntilTheEnd = buffer.length - position;
     const stepsLeft = step - stepsUntilTheEnd;
-    position = (stepsLeft % buffer.length);
+    position = stepsLeft % buffer.length;
   } else {
     position += step;
   }
@@ -46,4 +46,3 @@ module.exports.challenge2 = (step, endValue) => {
 
   return buffer[1];
 };
-

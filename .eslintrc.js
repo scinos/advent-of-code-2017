@@ -1,12 +1,13 @@
 module.exports = {
     plugins: [
-        "mocha"
+        "mocha",
+        "prettier"
     ],
     env: {
         node: true,
         mocha: true
     },
-    extends: "airbnb-base",
+    extends: ["airbnb-base", "prettier"],
 
     rules: {
         "no-loop-func": "off",
@@ -18,6 +19,11 @@ module.exports = {
         "no-continue": "off",
         "no-bitwise": "off",
         "prefer-destructuring": "off",
-        "no-return-assign": "off"
+        "no-return-assign": "off",
+        "no-constant-condition": "off",
+
+        "prettier/prettier": "error",
+
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/test.js"]}]
     }
 }

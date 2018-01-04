@@ -1,12 +1,10 @@
-const findBiggestBank = memory => memory.reduce(
-  (biggestIndex, blocks, index) => {
+const findBiggestBank = memory =>
+  memory.reduce((biggestIndex, blocks, index) => {
     if (blocks > memory[biggestIndex]) return index;
     return biggestIndex;
-  },
-  0,
-);
+  }, 0);
 
-const balanceMemory = (memory) => {
+const balanceMemory = memory => {
   const workingMemory = Array.of(...memory);
 
   let memoryBank = findBiggestBank(workingMemory);
@@ -26,7 +24,7 @@ const balanceMemory = (memory) => {
   return workingMemory;
 };
 
-const findLoop = (memory) => {
+const findLoop = memory => {
   const knownConfigurations = {};
   let counter = 0;
   while (true) {
@@ -47,5 +45,8 @@ const challenge1 = input => findLoop(input.split(/\s+/).map(Number)).counter;
 const challenge2 = input => findLoop(input.split(/\s+/).map(Number)).size;
 
 module.exports = {
-  challenge1, challenge2, balanceMemory, findBiggestBank,
+  challenge1,
+  challenge2,
+  balanceMemory,
+  findBiggestBank,
 };

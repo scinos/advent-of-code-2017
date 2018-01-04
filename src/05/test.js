@@ -6,13 +6,7 @@ const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'))
 
 describe('Day 05 - Challenge 01', () => {
   it('Example #1: 0 3 0 1 -3', () => {
-    const result = challenge1([
-      '0',
-      '3',
-      '0',
-      '1',
-      '-3',
-    ].join('\n'));
+    const result = challenge1(['0', '3', '0', '1', '-3'].join('\n'));
     expect(result).to.equal(5);
   });
 
@@ -25,13 +19,7 @@ describe('Day 05 - Challenge 01', () => {
 
 describe('Day 05 - Challenge 02', () => {
   it('Example #1: 0 3 0 1 -3', () => {
-    const result = challenge2([
-      '0',
-      '3',
-      '0',
-      '1',
-      '-3',
-    ].join('\n'));
+    const result = challenge2(['0', '3', '0', '1', '-3'].join('\n'));
     expect(result).to.equal(10);
   });
 
@@ -41,4 +29,3 @@ describe('Day 05 - Challenge 02', () => {
     expect(result).to.equal(24774780);
   });
 });
-

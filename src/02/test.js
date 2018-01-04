@@ -6,11 +6,7 @@ const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'))
 
 describe('Challenge 02 - Day 01', () => {
   it('Example #1: 5 1 9 5 - 7 5 3 - 2 4 6 8', () => {
-    const result = challenge1([
-      '5 1 9 5',
-      '7 5 3',
-      '2 4 6 8',
-    ].join('\n'));
+    const result = challenge1(['5 1 9 5', '7 5 3', '2 4 6 8'].join('\n'));
     expect(result).to.be.equal(18);
   });
 
@@ -23,11 +19,7 @@ describe('Challenge 02 - Day 01', () => {
 
 describe('Challenge 02 - Day 02', () => {
   it('Ejemplo #1: 5 9 2 8 - 9 4 7 3 - 3 8 6 5', () => {
-    const result = challenge2([
-      '5 9 2 8',
-      '9 4 7 3',
-      '3 8 6 5',
-    ].join('\n'));
+    const result = challenge2(['5 9 2 8', '9 4 7 3', '3 8 6 5'].join('\n'));
     expect(result).to.be.equal(9);
   });
 

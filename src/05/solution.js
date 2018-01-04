@@ -12,17 +12,9 @@ const processInstructions = (instructions, incrementer) => {
   return counter;
 };
 
-const challenge1 = input => processInstructions(
-  input.split('\n').map(Number),
-  () => 1,
-);
+const challenge1 = input => processInstructions(input.split('\n').map(Number), () => 1);
 
-const challenge2 = input => processInstructions(
-  input.split('\n').map(Number),
-  offset => (
-    offset >= 3 ? -1 : 1
-  ),
-);
+const challenge2 = input =>
+  processInstructions(input.split('\n').map(Number), offset => (offset >= 3 ? -1 : 1));
 
 module.exports = { challenge1, challenge2 };
-
