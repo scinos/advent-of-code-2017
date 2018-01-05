@@ -28,7 +28,7 @@ describe('Day 18 - Challenge 01', () => {
   });
 });
 
-describe('Day 17 - Challenge 02', () => {
+describe('Day 18 - Challenge 02', () => {
   it('Example #1', () => {
     const input = ['snd 1', 'snd 2', 'snd p', 'rcv a', 'rcv b', 'rcv c', 'rcv d'].join('\n');
 
