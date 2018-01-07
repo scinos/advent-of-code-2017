@@ -4,7 +4,7 @@ const path = require('path');
 
 const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'));
 
-describe.only('Day 22 - Challenge 01', () => {
+describe('Day 22 - Challenge 01', () => {
   const map = ['..#', '#..', '...'].join('\n');
 
   it('Example #', () => {
@@ -25,7 +25,7 @@ describe.only('Day 22 - Challenge 01', () => {
   });
 });
 
-describe.only('Day 22 - Challenge 02', () => {
+describe('Day 22 - Challenge 02', () => {
   const map = ['..#', '#..', '...'].join('\n');
 
   it('Example #', () => {
