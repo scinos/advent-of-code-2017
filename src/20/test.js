@@ -4,7 +4,7 @@ const path = require('path');
 
 const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'));
 
-describe.only('Day 20 - Challenge 01', () => {
+describe('Day 20 - Challenge 01', () => {
   it('Example #1', () => {
     const input = ['p=< 3,0,0>, v=< 2,0,0>, a=<-1,0,0>', 'p=< 4,0,0>, v=< 0,0,0>, a=<-2,0,0>'].join(
       '\n',
