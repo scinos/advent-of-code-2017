@@ -4,7 +4,7 @@ const path = require('path');
 
 const readInput = require('../lib/readInput')(path.join(__dirname, 'input.txt'));
 
-describe.only('Day 21 - Challenge 01', () => {
+describe('Day 21 - Challenge 01', () => {
   const rawInput = ['../.# => ##./#../...', '.#./..#/### => #..#/..../..../#..#'].join('\n');
 
   it('Can transform pattern of size=2', () => {
@@ -40,7 +40,7 @@ describe.only('Day 21 - Challenge 01', () => {
   });
 });
 
-describe.only('Day 21 - Challenge 02', () => {
+describe('Day 21 - Challenge 02', () => {
   it('Puzzle input', async () => {
     const input = await readInput();
     expect(challenge1(input, 18)).to.equal(2264586);
