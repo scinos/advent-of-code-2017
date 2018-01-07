@@ -117,25 +117,3 @@ module.exports.challenge1 = input => {
   Program.runProgram(program);
   return program.instructionsCount.mul;
 };
-
-module.exports.challenge2 = input => {
-  const instructions = parse(input);
-  instructions.unshift({ instruction: 'set', a: 'a', b: 1 });
-  const program = new Program(instructions);
-  Program.runProgram(program);
-  return program.registry.h;
-};
-
-// module.exports.challenge2 = input => {
-//   const instructions = parse(input);
-
-//   const programA = new Program(0, instructions);
-//   const programB = new Program(1, instructions);
-
-//   do {
-//     Program.runProgram(programA, programB);
-//     Program.runProgram(programB, programA);
-//   } while (programA.queue.length !== 0 || programB.queue.length !== 0);
-
-//   return programB.countValuesSent;
-// };
