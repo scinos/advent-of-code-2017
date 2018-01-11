@@ -1,3 +1,5 @@
+const isPrime = require('quick-is-prime');
+
 const parse = input =>
   input.split('\n').map(line => {
     const [, instruction, a, b] = line.match(/^([a-z]{3}) (.*?)(?: (.*?))?$/);
@@ -116,4 +118,16 @@ module.exports.challenge1 = input => {
   const program = new Program(instructions);
   Program.runProgram(program);
   return program.instructionsCount.mul;
+};
+
+// Huge hack
+module.exports.challenge2 = () => {
+  const b = 79 * 100 + 100000;
+  const c = b + 17000;
+
+  let primeCount = 0;
+  for (let i = c; i >= b; i -= 17) {
+    if (!isPrime(i)) primeCount += 1;
+  }
+  return primeCount;
 };

@@ -12,9 +12,9 @@ describe('Day 23 - Challenge 01', () => {
 });
 
 // Requires manual analysis
-describe.skip('Day 23 - Challenge 02', () => {
+describe('Day 23 - Challenge 02', () => {
   it('Puzzle input', async () => {
     const input = await readInput();
-    expect(challenge2(input)).to.equal(11);
+    expect(challenge2(input)).to.equal(1460);
   });
 });

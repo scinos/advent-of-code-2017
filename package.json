@@ -22,6 +22,7 @@
     "compute-fliplr": "^1.0.0",
     "compute-flipud": "^1.0.0",
     "compute-rot90": "^1.0.0",
-    "dstructs-matrix": "^2.1.2"
+    "dstructs-matrix": "^2.1.2",
+    "quick-is-prime": "^1.0.7"
   }
 }
